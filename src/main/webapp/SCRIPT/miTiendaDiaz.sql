@@ -1,0 +1,15 @@
+--CREACION DE BASE DE DATOS Y EL USUARIO
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE DATABASE medicamentosJoseba;
+
+
+CREATE USER 'diaz'@'%' IDENTIFIED BY 'joseba';
+GRANT ALL PRIVILEGES ON medicamentosJoseba.* to 'diaz'@'%';
+
+
+--CREACION DE TABLAS
+
+CREATE TABLE 
