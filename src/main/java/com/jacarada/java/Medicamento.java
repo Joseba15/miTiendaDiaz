@@ -2,17 +2,23 @@ package com.jacarada.java;
 
 import java.util.Locale.Category;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity (name = "categoria")
+@Entity (name = "medicamentos")
 public class Medicamento {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name="nombre")
 	private String name;
+	@Column(name="descripcion")
 	private String description;
 	private Double precio;
 	@ManyToOne

@@ -8,16 +8,29 @@
 <body>
      <div id="formDiv">
             <h1>Sing Up</h1>
-            <form action="servletSignUp" method="post">
+            <form action="ServletSignUp" method="post">
 				<label>Username:</label>
-				<input type="text" name="username">
+				<input type="text" name="username" required>
 				<br>
 				<label>Password :</label>
-				<input type="password" name="password">
+				<input type="password" name="password"required>
 				<br>
+				<label>Name :</label>
+				<input type="text" name="first"required>
 				<br>
-                <p><input type="checkbox" name="YN" value="yes" required>I have read and accept the terms and conditions</p>
-				<button name="confirm">Confirm</button>
+				<label>Last Name :</label>
+				<input type="text" name="last"required>
+				<br>
+				<label>Birthday :</label>
+				<input type="date" name="birthday">
+				<br>
+				<label>Gender :</label>
+					Hombre<input type="radio" required name="gender" id="gender" value="Hombre" checked> 
+	            	Mujer <input type="radio" required name="gender" id="gender" value="Mujer"> 
+				<br>
+				 <input type="hidden" name="admin" id="admin" value="0">
+				<br>
+				<button type="submit" name="confirm">Confirm</button>
 				<a href="Login.html"><button name="back" type="button">Back</button></a>
 			</form>
         </div>

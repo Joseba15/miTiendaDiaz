@@ -1,5 +1,7 @@
 package com.jacarada.java;
 
+import java.time.LocalDate;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -8,33 +10,24 @@ public class CRUDUser {
 
 	
 	
-	public static boolean saveUser(User user) {
-		ConnectionBD c1 = new ConnectionBD();
-		boolean resultado=false;
-		Session session = c1.getSession();
-		
-		try {
-			
-			session.getTransaction().begin();
-			session.save(user);
-			session.getTransaction().commit();			
-			resultado=true;			
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return resultado;
-	}
+	
+	public static void saveUser(String username, String password, String nombre, String apellido, LocalDate fechaNacimiento, String genero, boolean admin) {
+        Session session = ConnectionBD.getSession();
+        User usuario = new User(nombre, password, nombre, apellido, fechaNacimiento, genero, admin);
+        session.getTransaction().begin();
+        session.save(usuario);
+        session.getTransaction().commit();
+    }
 	
 	
 	public static User getUser(String name ) {
-		ConnectionBD c1 = new ConnectionBD();
-		Session session = c1.getSession();
+		Session session =  ConnectionBD.getSession();
 			
 		User user = (User) session.get(User.class,name);
 		return user;
 		
 	}
+	
 	
 	
 	public static String getMD5(String input) {
@@ -43,5 +36,17 @@ public class CRUDUser {
         return pass;
     }
 	
+	
+	public static boolean check(String username, String password) {
+		String passwordEnc = getMD5(password);
+		boolean isValid = false;
+		
+		
+		if (getUser(username)!= null) {
+			isValid= true;
+		}
+		
+		return isValid;
+	}
 	
 }

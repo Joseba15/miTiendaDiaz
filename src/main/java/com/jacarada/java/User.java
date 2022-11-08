@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity (name = "usuario")
@@ -23,6 +25,8 @@ public class User {
 	private String genero;
 	@Column(name = "admin")
 	private boolean admin;
+	
+	public User() {}
 	
 	public User(String nombreUsuario, String contrasena, String nombre, String apellido, LocalDate fechaNacimiento,
 			String genero, boolean admin) {
