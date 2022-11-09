@@ -1,3 +1,14 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE DATABASE medicamentosJoseba;
+
+
+GRANT ALL PRIVILEGES ON medicamentosJoseba.* to 'diaz'@'%' IDENTIFIED BY 'joseba';
+
+USE medicamentosJoseba;
+
 CREATE TABLE categoria(
 	id INT(6) AUTO_INCREMENT,
 	nombre VARCHAR(500),

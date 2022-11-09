@@ -4,7 +4,8 @@ import java.time.LocalDate;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
 public class CRUDUser {
 
