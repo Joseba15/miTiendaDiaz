@@ -47,7 +47,7 @@ public class ServletMedicamentos extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		response.setContentType("text/html");
+		
 		PrintWriter out = response.getWriter();
 		
 		String usuario = request.getParameter("username");
@@ -74,14 +74,14 @@ public class ServletMedicamentos extends HttpServlet {
 	    				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
 	    				+ "</head>"
 	    				+ "<body>"
-	    				+ "<div>"
 	    				+ "<table border='2'>"
 	    				+ "<tr>"
 	    				+ "<th id='id'>Id: </th>"
 	    				+ "<th id='name'>Nombre: </th>"
 	    				+ "<th id='description'>Descripcion: </th>"
 	    				+ "<th id='price'>Precio: </th>"
-	    				+ "<th id='price'>Nombre Categoria: </th>"
+	    				+ "<th id='category'>Nombre Categoria: </th>"
+	    				+ "<th id='boton'><a href=\"Login.html\"><button name=\"back\" type=\"button\">Anadir Medicamento</button></a></th>"
 	    				+ "</tr>");
 	    
 	         	List<Medicamento> lista = CRUDMedicamento.getMedicines();
@@ -93,6 +93,7 @@ public class ServletMedicamentos extends HttpServlet {
 	    					+ "<td>" + medicamento.getDescription() + "</td>"
 	    					+ "<td>" + medicamento.getPrecio()+ "</td>"
 	    					+ "<td>" + medicamento.getCategoria().getNombre() + "</td>"
+	    					+ "<td>"+"</td>"
 	    					+ "</tr>"); 
 	    					}
 				}
@@ -101,7 +102,20 @@ public class ServletMedicamentos extends HttpServlet {
 	    		//response.sendRedirect("prueba.html");
 	    		
 	       	} else { 
-	       		response.sendRedirect("Error.html");
+	       		response.getWriter().append("<!DOCTYPE html>"
+	    				+ "<html>"
+	    				+ "<head>"
+	    				+ "<meta charset=\"UTF-8\">"
+	    				+ "<title>"
+	    				+ "Pagina Error"
+	    				+ "</title>"
+	    				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+	    				+ "</head>"
+	    				+ "<body>"
+	    				+"<h1>Error 404</h1>"
+	    				+"<h4>Page not Found</h4>"
+	    				+"</body>");
+;
 	  	 	}
 		
 		

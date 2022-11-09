@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
 public class CRUDUser {
 
@@ -29,7 +28,15 @@ public class CRUDUser {
 		
 	}
 	
-	
+	public static boolean isValidUser(String nombreUsuario, String contrasena, String nombre, String apellido, LocalDate fechaNacimiento, String genero, boolean admin) {
+		boolean isValid=true;
+		
+		if (nombreUsuario.length()>20 && contrasena.length()>50 && apellido.length()>20 && nombre.length()>20 && nombre.length()>60  ) {
+			isValid =false;
+		}
+		
+		return isValid;
+	}
 	
 	public static String getMD5(String input) {
 

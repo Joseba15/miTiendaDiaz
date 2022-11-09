@@ -58,7 +58,7 @@ public class ServletSignUp extends HttpServlet {
 			realAdmin=false;
 		}
 		
-		if (CRUDUser.getUser(nombreusuario)==null) {
+		if (CRUDUser.getUser(nombreusuario)==null && CRUDUser.isValidUser(contrasena, passEncript, nombre, apellido, birthday, genero, realAdmin)==true) {
 			CRUDUser.saveUser(nombreusuario,passEncript,nombre,apellido,birthday,genero,realAdmin);
 			response.sendRedirect("Login.html");
 			
