@@ -7,7 +7,7 @@ CREATE DATABASE medicamentosJoseba;
 
 GRANT ALL PRIVILEGES ON medicamentosJoseba.* to 'diaz'@'%' IDENTIFIED BY 'joseba';
 
-U medicamentosJoseba;
+USE medicamentosJoseba;
 
 CREATE TABLE categoria(
 	id INT(6) AUTO_INCREMENT,

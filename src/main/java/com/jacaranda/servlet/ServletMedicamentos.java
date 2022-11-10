@@ -80,9 +80,12 @@ public class ServletMedicamentos extends HttpServlet {
 	    				+ "<th id='name'>Nombre: </th>"
 	    				+ "<th id='description'>Descripcion: </th>"
 	    				+ "<th id='price'>Precio: </th>"
-	    				+ "<th id='category'>Nombre Categoria: </th>"
-	    				+ "<th id='boton'><a href=\"Login.html\"><button name=\"back\" type=\"button\">Anadir Medicamento</button></a></th>"
-	    				+ "</tr>");
+	    				+ "<th id='category'>Nombre Categoria: </th>");
+	    				if (CRUDUser.getUser(usuario).isAdmin()) {
+	    					response.getWriter().append("<th id='enlace'>"
+	    							+ "<a href=\"AddMedicamento.html\"></a></th>"
+	    							+ "</tr>");							
+						}
 	    
 	         	List<Medicamento> lista = CRUDMedicamento.getMedicines();
 	         	

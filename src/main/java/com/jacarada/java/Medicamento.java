@@ -27,9 +27,9 @@ public class Medicamento {
 	
 	public Medicamento() {}
 
-	public Medicamento(int id, String name, String description, Double precio, Categoria categoria) {
+	public Medicamento(String name, String description, Double precio, Categoria categoria) {
 		super();
-		this.id = id;
+		
 		this.name = name;
 		this.description = description;
 		this.precio = precio;

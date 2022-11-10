@@ -19,7 +19,7 @@ public class CRUDMedicamento {
 	
 	public static void saveMedicines(String nombre,String descripcion, Double precio, Categoria categoria) {
         Session session = ConnectionBD.getSession();
-        Medicamento medicamento= new Medicamento(0, nombre,descripcion,precio,categoria);
+        Medicamento medicamento= new Medicamento( nombre,descripcion,precio,categoria);
         session.getTransaction().begin();
         session.save(medicamento);
         session.getTransaction().commit();
