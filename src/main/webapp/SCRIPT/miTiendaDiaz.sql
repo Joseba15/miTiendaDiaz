@@ -33,7 +33,7 @@ CREATE TABLE medicamentos (
 
 CREATE TABLE usuario(
 nombreUsuario VARCHAR(20),
-contrasena VARCHAR(50),
+contrasena VARCHAR(32),
 nombre VARCHAR(20),
 apellido VARCHAR(20),
 fechaNacimiento date,

@@ -16,16 +16,16 @@ import com.jacarada.java.CRUDUser;
 import com.jacarada.java.Medicamento;
 
 /**
- * Servlet implementation class ServletMedicamentos
+ * Servlet implementation class ServletLogIn
  */
-@WebServlet("/ServletMedicamentos")
-public class ServletMedicamentos extends HttpServlet {
+@WebServlet("/ServletLogIn")
+public class ServletLogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * Default constructor. 
+     * Default constructor. 8
      */
-    public ServletMedicamentos() {
+    public ServletLogIn() {
         // TODO Auto-generated constructor stub
     }
 
@@ -34,12 +34,25 @@ public class ServletMedicamentos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("<!DOCTYPE html>"
+				+ "<html>"
+				+ "<head>"
+				+ "<meta charset=\"UTF-8\">"
+				+ "<title>"
+				+ "Pagina Error"
+				+ "</title>"
+				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+				+ "</head>"
+				+ "<body>"
+				+"<h1>Error 404</h1>"
+				+"<h4>Page not Found</h4>"
+				+"</body>"
+				+"</html>");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 */ 
 	
 	
 	 
@@ -115,9 +128,10 @@ public class ServletMedicamentos extends HttpServlet {
 	    				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
 	    				+ "</head>"
 	    				+ "<body>"
-	    				+"<h1>Error 404</h1>"
-	    				+"<h4>Page not Found</h4>"
-	    				+"</body>");
+	    				+"<h1>Error 400!</h1>"
+	    				+"<h4>User doesn't exits on database!</h4>"
+	    				+"</body>"
+	    				+"</html>");
 ;
 	  	 	}
 		

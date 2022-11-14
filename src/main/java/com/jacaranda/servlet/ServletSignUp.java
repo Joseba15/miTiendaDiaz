@@ -32,7 +32,20 @@ public class ServletSignUp extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("<!DOCTYPE html>"
+				+ "<html>"
+				+ "<head>"
+				+ "<meta charset=\"UTF-8\">"
+				+ "<title>"
+				+ "Pagina Error"
+				+ "</title>"
+				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+				+ "</head>"
+				+ "<body>"
+				+"<h1>Error 404</h1>"
+				+"<h4>Page not Found</h4>"
+				+"</body>"
+				+"</html>");
 	}
 
 	/**
@@ -58,10 +71,45 @@ public class ServletSignUp extends HttpServlet {
 			realAdmin=false;
 		}
 		
-		if (CRUDUser.getUser(nombreusuario)==null && CRUDUser.isValidUser(contrasena, passEncript, nombre, apellido, birthday, genero, realAdmin)==true) {
-			CRUDUser.saveUser(nombreusuario,passEncript,nombre,apellido,birthday,genero,realAdmin);
-			response.sendRedirect("Login.html");
+		if(nombreusuario!= null && contrasena!=null && nombre !=null && apellido!=null
+				&& birthday!=null && genero!=null){
 			
+			if (CRUDUser.getUser(nombreusuario)==null && CRUDUser.isValidUser(contrasena, passEncript, nombre, apellido, birthday, genero, realAdmin)==true) {
+				CRUDUser.saveUser(nombreusuario,passEncript,nombre,apellido,birthday,genero,realAdmin);
+				response.sendRedirect("Login.html");
+				
+			}else {
+				response.getWriter().append("<!DOCTYPE html>"
+						+ "<html>"
+						+ "<head>"
+						+ "<meta charset=\"UTF-8\">"
+						+ "<title>"
+						+ "Pagina Error"
+						+ "</title>"
+						+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+						+ "</head>"
+						+ "<body>"
+						+"<h1>Error 400</h1>"
+						+"<h4>User already exits!. Or data is too long for column on database</h4>"
+						+"</body>"
+						+"</html>");
+			}
+			
+		}else {
+			response.getWriter().append("<!DOCTYPE html>"
+					+ "<html>"
+					+ "<head>"
+					+ "<meta charset=\"UTF-8\">"
+					+ "<title>"
+					+ "Pagina Error"
+					+ "</title>"
+					+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+					+ "</head>"
+					+ "<body>"
+					+"<h1>Error 400</h1>"
+					+"<h4>All the form data mustn't be null</h4>"
+					+"</body>"
+					+"</html>");
 		}
 		
 		//user,passEncript,realAdmin,first,last,birthday,gender

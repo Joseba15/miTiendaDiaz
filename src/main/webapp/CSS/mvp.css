@@ -57,6 +57,10 @@ body {
     padding: 0;
 }
 
+#formDiv{
+	align-content: center;
+}
+
 footer,
 header,
 main {
@@ -372,6 +376,7 @@ form {
     min-width: var(--width-card);
     padding: 1.5rem;
     text-align: var(--justify-normal);
+    margin:0px auto;
 }
 
 form header {
