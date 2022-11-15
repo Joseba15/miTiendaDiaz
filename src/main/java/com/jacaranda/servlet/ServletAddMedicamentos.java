@@ -44,14 +44,14 @@ public class ServletAddMedicamentos extends HttpServlet {
 		String name= request.getParameter("name");
 		String description = request.getParameter("description");
 		Double price= Double.valueOf(request.getParameter("price"));
-		Categoria category= request.getParameter("category");
+		String category= request.getParameter("category");
 		String fileUrl = request.getParameter("file");		
 
 
 	
 		
 		if (true) {
-			CRUDMedicamento.saveMedicines( name, description, price, category);
+			//CRUDMedicamento.saveMedicines( name, description, price, category);
 			response.sendRedirect("ServletMedicamentos");
 			
 		}

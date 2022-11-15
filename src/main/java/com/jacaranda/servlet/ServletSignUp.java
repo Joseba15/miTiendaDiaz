@@ -30,6 +30,8 @@ public class ServletSignUp extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.getWriter().append("<!DOCTYPE html>"
@@ -61,7 +63,8 @@ public class ServletSignUp extends HttpServlet {
 		String apellido= request.getParameter("last");
 		LocalDate birthday= LocalDate.parse(String.valueOf(request.getParameter("birthday")));
 		String genero =(request.getParameter("gender"));
-		int admin = Integer.valueOf(request.getParameter("admin"));
+		//int admin = Integer.valueOf(request.getParameter("admin"));
+		int admin=0;
 		
 		boolean realAdmin = true;
 
@@ -112,7 +115,6 @@ public class ServletSignUp extends HttpServlet {
 					+"</html>");
 		}
 		
-		//user,passEncript,realAdmin,first,last,birthday,gender
 		
 	}
 

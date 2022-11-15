@@ -96,7 +96,7 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<th id='category'>Nombre Categoria: </th>");
 	    				if (CRUDUser.getUser(usuario).isAdmin()) {
 	    					response.getWriter().append("<th id='enlace'>"
-	    							+ "<a href=\"AddMedicamento.html\"></a></th>"
+	    							+ "<a href=\"AddMedicamento.html\">Add Medicamento</a></th>"
 	    							+ "</tr>");							
 						}
 	    

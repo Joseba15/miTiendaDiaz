@@ -31,7 +31,7 @@ public class CRUDUser {
 	public static boolean isValidUser(String nombreUsuario, String contrasena, String nombre, String apellido, LocalDate fechaNacimiento, String genero, boolean admin) {
 		boolean isValid=true;
 		
-		if (nombreUsuario.length()>20 && contrasena.length()>50 && apellido.length()>20 && nombre.length()>20 && nombre.length()>60  ) {
+		if (nombreUsuario.length()>20 && contrasena.length()>32 && apellido.length()>20 && nombre.length()>20 && nombre.length()>60  ) {
 			isValid =false;
 		}
 		
