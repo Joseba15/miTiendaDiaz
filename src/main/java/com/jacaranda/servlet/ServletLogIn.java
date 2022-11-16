@@ -64,11 +64,11 @@ public class ServletLogIn extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String usuario = request.getParameter("username");
-		String password = CRUDUser.getMD5(request.getParameter("password"));
+		String password = request.getParameter("password");
 		
 		
 		if(usuario !=null && password !=null){
-	    	if(CRUDUser.getUser(usuario) != null && CRUDUser.getUser(usuario).getNombreUsuario().equals(usuario)  && CRUDUser.getUser(usuario).getContrasena().equals(password)){
+	    	if(CRUDUser.getUser(usuario) != null && CRUDUser.getUser(usuario).getNombreUsuario().equals(usuario)  && CRUDUser.getUser(usuario).getContrasena().equals(CRUDUser.getMD5(password))){
 	    		HttpSession session  = request.getSession();
 	         	session.setAttribute("login", "True");
 	         	session.setAttribute("usuario", usuario);
@@ -87,6 +87,8 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
 	    				+ "</head>"
 	    				+ "<body>"
+	    				+ "<a href=\"Login.html\"><input type='button' name='logout' value='LogOut'></a> "
+	    				+ "<br>"
 	    				+ "<table border='2'>"
 	    				+ "<tr>"
 	    				+ "<th id='id'>Id: </th>"
@@ -109,13 +111,27 @@ public class ServletLogIn extends HttpServlet {
 	    					+ "<td>" + medicamento.getDescription() + "</td>"
 	    					+ "<td>" + medicamento.getPrecio()+ "</td>"
 	    					+ "<td>" + medicamento.getCategoria().getNombre() + "</td>"
-	    					+ "<td>"+"</td>"
-	    					+ "</tr>"); 
+	    					+ "<td>"+"</td>"); 
 	    					}
+	         		
+				}else {
+					
+					response.getWriter().append("<!DOCTYPE html>"
+							+ "<html>"
+							+ "<head>"
+							+ "<meta charset=\"UTF-8\">"
+							+ "<title>"
+							+ "Pagina Error"
+							+ "</title>"
+							+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+							+ "</head>"
+							+ "<body>"
+							+"<h1>Error 400!</h1>"
+							+"<h4>User doesn't exits on database!</h4>"
+							+"</body>"
+							+"</html>");
 				}
 	         	
-	    		//RequestDispatcher rd = request.getRequestDispatcher("prueba.html");
-	    		//response.sendRedirect("prueba.html");
 	    		
 	       	} else { 
 	       		response.getWriter().append("<!DOCTYPE html>"
@@ -132,7 +148,6 @@ public class ServletLogIn extends HttpServlet {
 	    				+"<h4>User doesn't exits on database!</h4>"
 	    				+"</body>"
 	    				+"</html>");
-;
 	  	 	}
 		
 		

@@ -23,7 +23,10 @@ public class CRUDUser {
 	public static User getUser(String name ) {
 		Session session =  ConnectionBD.getSession();
 			
+		
 		User user = (User) session.get(User.class,name);
+	
+		
 		return user;
 		
 	}
