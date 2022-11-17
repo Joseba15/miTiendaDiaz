@@ -98,7 +98,7 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<th id='category'>Nombre Categoria: </th>");
 	    				if (CRUDUser.getUser(usuario).isAdmin()) {
 	    					response.getWriter().append("<th id='enlace'>"
-	    							+ "<a href=\"AddMedicamento.html\">Add Medicamento</a></th>"
+	    							+ "<a href=\"AddMedicamento.jsp\">Add Medicamento</a></th>"
 	    							+ "</tr>");							
 						}
 	    
@@ -127,7 +127,7 @@ public class ServletLogIn extends HttpServlet {
 							+ "</head>"
 							+ "<body>"
 							+"<h1>Error 400!</h1>"
-							+"<h4>User doesn't exits on database!</h4>"
+							+"<h4>Data is null or data is too long for column</h4>"
 							+"</body>"
 							+"</html>");
 				}

@@ -56,29 +56,52 @@ public class ServletSignUp extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		
-		String nombreusuario= request.getParameter("username");
+		LocalDate birthday= null;
+		String nombreusuario= null;
 		String contrasena = request.getParameter("password");
 		String nombre=request.getParameter("first");
 		String apellido= request.getParameter("last");
-		LocalDate birthday= LocalDate.parse(String.valueOf(request.getParameter("birthday")));
 		String genero =(request.getParameter("gender"));
+		try {
+			 birthday= LocalDate.parse(String.valueOf(request.getParameter("birthday")));
+			 nombreusuario= request.getParameter("username");
+
+		} catch (Exception e) {
+			response.getWriter().append("<!DOCTYPE html>"
+					+ "<html>"
+					+ "<head>"
+					+ "<meta charset=\"UTF-8\">"
+					+ "<title>"
+					+ "Pagina Error"
+					+ "</title>"
+					+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+					+ "</head>"
+					+ "<body>"
+					+"<h1>Error 400</h1>"
+					+"<h4>Data can not parse</h4>"
+					+"</body>"
+					+"</html>");
+			
+			throw e;
+			
+		}
 		//int admin = Integer.valueOf(request.getParameter("admin"));
 		int admin=0;
 		
 		boolean realAdmin = true;
 
-		String passEncript = CRUDUser.getMD5(contrasena);
+		
 
 		if (admin==0 ) {
 			realAdmin=false;
 		}
 		
-		if(nombreusuario!= null && contrasena!=null && nombre !=null && apellido!=null
-				&& birthday!=null && genero!=null){
+		if((nombreusuario!= null || !nombreusuario.isEmpty()) && (contrasena!=null || !contrasena.isEmpty() )&& (nombre !=null || !nombre.isEmpty()) 
+				&& (apellido!=null || !apellido.isEmpty())
+				&& birthday!=null && (genero!=null || !genero.isEmpty())){
 			
-			if (CRUDUser.getUser(nombreusuario)==null && CRUDUser.isValidUser(contrasena, passEncript, nombre, apellido, birthday, genero, realAdmin)==true) {
-				CRUDUser.saveUser(nombreusuario,passEncript,nombre,apellido,birthday,genero,realAdmin);
+			if (CRUDUser.getUser(nombreusuario)==null && CRUDUser.isValidUser(nombreusuario,CRUDUser.getMD5(contrasena), nombre, apellido, birthday, genero, realAdmin)==true) {
+				CRUDUser.saveUser(nombreusuario,CRUDUser.getMD5(contrasena),nombre,apellido,birthday,genero,realAdmin);
 				response.sendRedirect("Login.html");
 				
 			}else {
@@ -110,7 +133,7 @@ public class ServletSignUp extends HttpServlet {
 					+ "</head>"
 					+ "<body>"
 					+"<h1>Error 400</h1>"
-					+"<h4>All the form data mustn't be null</h4>"
+					+"<h4>All the form data cannot be null</h4>"
 					+"</body>"
 					+"</html>");
 		}

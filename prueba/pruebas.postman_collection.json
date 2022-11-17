@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "c7543a4c-7d47-44d6-b102-9b5bee8e4e62",
+		"name": "pruebas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24432910"
+	},
+	"item": [
+		{
+			"name": "LogIn",
+			"item": [
+				{
+					"name": "login get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletLogIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletLogIn"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "username ",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login post campos correctos admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletLogIn?username=joseba&password=joseba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletLogIn"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "joseba"
+								},
+								{
+									"key": "password",
+									"value": "joseba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login post campos vacios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletLogIn?username =joseba&password=joseba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletLogIn"
+							],
+							"query": [
+								{
+									"key": "username ",
+									"value": "joseba"
+								},
+								{
+									"key": "password",
+									"value": "joseba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login post campos no registrados",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletLogIn?username=aaa&password=aaa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletLogIn"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "aaa"
+								},
+								{
+									"key": "password",
+									"value": "aaa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login post campos nulos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletLogIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletLogIn"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login post campos correctos no admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletLogIn?username=pepe&password=pepe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletLogIn"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "pepe"
+								},
+								{
+									"key": "password",
+									"value": "pepe"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SignUp",
+			"item": [
+				{
+					"name": "signup get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletSignUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletSignUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup post campos corretos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletSignUp?username=manolo&password=manolo&first=manolo&last=manolo&birthday=2000-02-02&gender=Hombre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletSignUp"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "manolo"
+								},
+								{
+									"key": "password",
+									"value": "manolo"
+								},
+								{
+									"key": "first",
+									"value": "manolo"
+								},
+								{
+									"key": "last",
+									"value": "manolo"
+								},
+								{
+									"key": "birthday",
+									"value": "2000-02-02"
+								},
+								{
+									"key": "gender",
+									"value": "Hombre"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup post campos nulos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletSignUp?username=&password=&first=&last=&birthday=&gender=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletSignUp"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": ""
+								},
+								{
+									"key": "password",
+									"value": ""
+								},
+								{
+									"key": "first",
+									"value": ""
+								},
+								{
+									"key": "last",
+									"value": ""
+								},
+								{
+									"key": "birthday",
+									"value": ""
+								},
+								{
+									"key": "gender",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup post campos vacios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletSignUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletSignUp"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "first",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "last",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "birthday",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "gender",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup post campos existentes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletSignUp?username=manolo&password=manolo&first=manolo&last=manolo&birthday=2000-02-02&gender=Hombre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletSignUp"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "manolo"
+								},
+								{
+									"key": "password",
+									"value": "manolo"
+								},
+								{
+									"key": "first",
+									"value": "manolo"
+								},
+								{
+									"key": "last",
+									"value": "manolo"
+								},
+								{
+									"key": "birthday",
+									"value": "2000-02-02"
+								},
+								{
+									"key": "gender",
+									"value": "Hombre"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AddArticle",
+			"item": [
+				{
+					"name": "addArticle get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletAddMedicamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletAddMedicamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addArticle post campos corretos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletAddMedicamentos?name=hola2&description=hola2&price=20.00&category=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletAddMedicamentos"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "hola2"
+								},
+								{
+									"key": "description",
+									"value": "hola2"
+								},
+								{
+									"key": "price",
+									"value": "20.00"
+								},
+								{
+									"key": "category",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addArticle post campos nulos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletAddMedicamentos?name=hola69&description=hola3&price=20.00&category=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletAddMedicamentos"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "hola69"
+								},
+								{
+									"key": "description",
+									"value": "hola3"
+								},
+								{
+									"key": "price",
+									"value": "20.00"
+								},
+								{
+									"key": "category",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addArticle post campos vacios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/miTiendaDiaz/ServletAddMedicamentos?name=&description=&price=&category=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miTiendaDiaz",
+								"ServletAddMedicamentos"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								},
+								{
+									"key": "description",
+									"value": ""
+								},
+								{
+									"key": "price",
+									"value": ""
+								},
+								{
+									"key": "category",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -15,13 +15,48 @@ public class CRUDMedicamento {
 		ArrayList<Medicamento> listMedicina = (ArrayList<Medicamento>) query.getResultList();
 		
 		return listMedicina;
+		
 		}
+	
+
+	
 	
 	public static void saveMedicines(String nombre,String descripcion, Double precio, Categoria categoria) {
         Session session = ConnectionBD.getSession();
-        Medicamento medicamento= new Medicamento( nombre,descripcion,precio,categoria);
-        session.getTransaction().begin();
-        session.save(medicamento);
-        session.getTransaction().commit();
+        Medicamento medicamento= new Medicamento(nombre,descripcion,precio,categoria);
+        
+        try {
+        	session.getTransaction().begin();
+        	session.save(medicamento);
+        	session.getTransaction().commit();
+			
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+        
+        
     }
+	
+	
+	
+	public static boolean existMedicamento(String nombre ) {
+		
+		boolean res = false;
+
+        Session session = ConnectionBD.getSession();
+        List<Medicamento> listMedicamento= new ArrayList<>();
+        Query query=ConnectionBD.getSession().createQuery("SELECT m FROM medicamentos m WHERE nombre like '"+nombre+"'");
+        
+        listMedicamento = query.getResultList();
+        if(listMedicamento.size()==0) {
+            res=true;
+        }
+        return res;
+		
+    }
+	
+	
+	
 }
