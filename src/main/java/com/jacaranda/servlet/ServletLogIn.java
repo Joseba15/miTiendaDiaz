@@ -41,7 +41,7 @@ public class ServletLogIn extends HttpServlet {
 				+ "<title>"
 				+ "Pagina Error"
 				+ "</title>"
-				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+				+ "<link rel='stylesheet' type='text/css' href='CSS/mvp.css'>"
 				+ "</head>"
 				+ "<body>"
 				+"<h1>Error 404</h1>"
@@ -84,7 +84,7 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<title>"
 	    				+ "Lista Medecinas"
 	    				+ "</title>"
-	    				+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+//	    				+ "<link rel='stylesheet' type='text/css' href='CSS/mvp.css'>"
 	    				+ "</head>"
 	    				+ "<body>"
 	    				+ "<a href=\"Login.html\"><input type='button' name='logout' value='LogOut'></a> "
@@ -111,7 +111,7 @@ public class ServletLogIn extends HttpServlet {
 	    					+ "<td>" + medicamento.getDescription() + "</td>"
 	    					+ "<td>" + medicamento.getPrecio()+ "</td>"
 	    					+ "<td>" + medicamento.getCategoria().getNombre() + "</td>"
-	    					+ "<td>"+"</td>"); 
+	    					+ "<td>"+"<button id='carrito'>Add</button>"+"</td>"); 
 	    					}
 	         		
 				}else {

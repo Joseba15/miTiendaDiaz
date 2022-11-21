@@ -26,6 +26,8 @@ public class User {
 	@Column(name = "admin")
 	private boolean admin;
 	
+	
+	
 	public User() {}
 	
 	public User(String nombreUsuario, String contrasena, String nombre, String apellido, LocalDate fechaNacimiento,

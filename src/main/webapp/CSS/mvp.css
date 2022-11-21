@@ -57,6 +57,10 @@ body {
     padding: 0;
 }
 
+#carrito{
+	margin-left: 12px;
+}
+
 #formDiv{
 	align-content: center;
 }
