@@ -49,8 +49,10 @@ CONSTRAINT pk_usuario PRIMARY KEY (nombreUsuario)
 CREATE TABLE usuario_medicamentos(
 nombreUsuario VARCHAR(20),
 id_medic INT(6),
+cantidad INT(2),
+fechaCompra DATE
 
-CONSTRAINT PK_USUARIO_MEDIC PRIMARY KEY (id_medic,nombreUsuario),
+CONSTRAINT PK_USUARIO_MEDIC PRIMARY KEY (id_medic,nombreUsuario,fechaCompra),
 CONSTRAINT FK_USUARIO_MEDIC FOREIGN KEY (id_medic) REFERENCES medicamentos(id) ON DELETE CASCADE,
 CONSTRAINT FK2_USUARIO_MEDIC FOREIGN KEY (nombreUsuario) REFERENCES usuario(nombreUsuario) ON DELETE CASCADE
 );

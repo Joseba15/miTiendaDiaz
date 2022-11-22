@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class Carrito {
 
-	private ArrayList<MedicamentoCarrito> listaCarrito;
+	private ArrayList<MedicamentoCarrito> listaCarrito= new ArrayList<>();
 	
 
 	public Carrito(ArrayList<MedicamentoCarrito> listaCarrito) {
-		this.listaCarrito = new ArrayList<>();
+		this.listaCarrito=listaCarrito;
 	}
 	
 	public Carrito() {}

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.jacarada.java.CRUDMedicamento;
 import com.jacarada.java.CRUDUser;
+import com.jacarada.java.Carrito;
 import com.jacarada.java.Medicamento;
 
 /**
@@ -65,13 +66,14 @@ public class ServletLogIn extends HttpServlet {
 		
 		String usuario = request.getParameter("username");
 		String password = request.getParameter("password");
+		Carrito carrito = new Carrito();
 		
-		
-		if(usuario !=null && password !=null){
+		if(usuario !=null && password !=null ){
 	    	if(CRUDUser.getUser(usuario) != null && CRUDUser.getUser(usuario).getNombreUsuario().equals(usuario)  && CRUDUser.getUser(usuario).getContrasena().equals(CRUDUser.getMD5(password))){
 	    		HttpSession session  = request.getSession();
 	         	session.setAttribute("login", "True");
 	         	session.setAttribute("usuario", usuario);
+	         	session.setAttribute("carrito", carrito);
 	         	
 	         	
 	         	response.setContentType("text/html");
@@ -111,7 +113,7 @@ public class ServletLogIn extends HttpServlet {
 	    					+ "<td>" + medicamento.getDescription() + "</td>"
 	    					+ "<td>" + medicamento.getPrecio()+ "</td>"
 	    					+ "<td>" + medicamento.getCategoria().getNombre() + "</td>"
-	    					+ "<td>"+"<button id='carrito'>Add</button>"+"</td>"); 
+	    					+ "<td>"+"<form action='AddToCarrito.jsp'><button type='submit' name='codigo' value='medicamento.getId()'>Add</button> Cantidad<input type='number' name='cantidad'> </form>"+"</td>"); 
 	    					}
 	         		
 				}else {
