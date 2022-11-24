@@ -86,10 +86,12 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<title>"
 	    				+ "Lista Medecinas"
 	    				+ "</title>"
-//	    				+ "<link rel='stylesheet' type='text/css' href='CSS/mvp.css'>"
-	    				+ "</head>"
+//    				    + "<link rel='stylesheet' type='text/css' href='CSS/mvp.css'>"
+	    				+ "</head>"	
 	    				+ "<body>"
 	    				+ "<a href=\"Login.html\"><input type='button' name='logout' value='LogOut'></a> "
+	    				+ "<a href=\"ListaCarrito.jsp\"><img src='IMAGES/carrito.png' width='40' height='40' id='imagen'></a>"
+	    				+ "<br>"
 	    				+ "<br>"
 	    				+ "<table border='2'>"
 	    				+ "<tr>"
@@ -113,7 +115,7 @@ public class ServletLogIn extends HttpServlet {
 	    					+ "<td>" + medicamento.getDescription() + "</td>"
 	    					+ "<td>" + medicamento.getPrecio()+ "</td>"
 	    					+ "<td>" + medicamento.getCategoria().getNombre() + "</td>"
-	    					+ "<td>"+"<form action='AddToCarrito.jsp'><button type='submit' name='codigo' value='medicamento.getId()'>Add</button> Cantidad<input type='number' name='cantidad'> </form>"+"</td>"); 
+	    					+ "<td>"+"<form action='AddToCarrito.jsp' method='post' ><button type='submit' name='codigo' value='"+medicamento.getId()+"'>Add</button> Cantidad<input type='number' name='cantidad'> </form>"+"</td>"); 
 	    					}
 	         		
 				}else {

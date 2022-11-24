@@ -1,4 +1,5 @@
 <%@page import="com.jacarada.java.CRUDMedicamento"%>
+<%@page import="com.jacarada.java.Medicamento"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="com.jacarada.java.MedicamentoCarrito"%>
 <%@page import="com.jacarada.java.Carrito"%>
@@ -12,26 +13,25 @@
 </head>
 <body>
 <%
+Carrito carrito = (Carrito) session.getAttribute("carrito");
 
 Integer cantidad = Integer.valueOf(request.getParameter("cantidad"));
 Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 
+/* CRUDMedicamento crudu = new CRUDMedicamento();
+	Medicamento medicamento= crudu.getMedicine(codigo);
+  */
+carrito.addArticulo( codigo ,cantidad, LocalDateTime.now());
 
-Carrito carrito = (Carrito) session.getAttribute("carrito");
-carrito.addArticulo( codigo,cantidad, LocalDateTime.now());
-
+  
+ 
 %>
-<h3 align="center">Medicine already added!</h3>
-<br>
+
 <%
-	ServletContext context = this.getServletContext(); 
-	RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletLogIn"); 
-	
-	
-	dispatcher.forward(request, response);
+ServletContext context = this.getServletContext(); 
+RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletLogIn");
 %>
 
-<a href="ServletLogIn"><button>Go Back</button></a>
 
 </body>
 </html>

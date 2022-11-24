@@ -57,6 +57,19 @@ body {
     padding: 0;
 }
 
+h1{
+	margin-left: 200px;
+	padding-left: 200px;
+}
+
+#titulo{
+	margin-left: 200px;
+	padding-left: 200px;
+}
+
+#imagen{
+	padding-left: 200px;
+}
 #carrito{
 	margin-left: 12px;
 }
@@ -226,6 +239,8 @@ h5,
 h6 {
     line-height: var(--line-height);
 }
+
+
 
 mark {
     padding: 0.1rem;
