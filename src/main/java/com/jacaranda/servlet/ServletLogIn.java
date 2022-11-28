@@ -90,7 +90,7 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "</head>"	
 	    				+ "<body>"
 	    				+ "<a href=\"Login.html\"><input type='button' name='logout' value='LogOut'></a> "
-	    				+ "<a href=\"ListaCarrito.jsp\"><img src='IMAGES/carrito.png' width='40' height='40' id='imagen'></a>"
+	    				+ "<a href=\"Compra.jsp\"><img src='IMAGES/carrito.png' width='40' height='40' id='imagen'></a>"
 	    				+ "<br>"
 	    				+ "<br>"
 	    				+ "<table border='2'>"

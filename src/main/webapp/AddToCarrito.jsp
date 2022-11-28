@@ -1,3 +1,4 @@
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="com.jacarada.java.CRUDMedicamento"%>
 <%@page import="com.jacarada.java.Medicamento"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -23,9 +24,9 @@ Integer codigo = Integer.valueOf(request.getParameter("codigo"));
   */
 carrito.addArticulo( codigo ,cantidad, LocalDateTime.now());
 
-  
- 
+
 %>
+
 
 <%
 ServletContext context = this.getServletContext(); 

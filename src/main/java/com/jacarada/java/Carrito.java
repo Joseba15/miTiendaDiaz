@@ -2,6 +2,7 @@ package com.jacarada.java;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import com.jacarada.java.MedicamentoCarrito;
 
 public class Carrito {
 
@@ -18,12 +19,11 @@ public class Carrito {
 	
 	
 	public void addArticulo(int idMedicamento, int cantidad, LocalDateTime fechaCompra) {
-		
-		for (MedicamentoCarrito medicamentoCarrito : listaCarrito) {
-			if (medicamentoCarrito.getIdMedicamento()!=idMedicamento) {			
+//		for (MedicamentoCarrito medicamentoCarrito : listaCarrito) {
+//			if (medicamentoCarrito.getIdMedicamento()!=idMedicamento) {			
 				listaCarrito.add(new MedicamentoCarrito(idMedicamento, cantidad, fechaCompra));
-			}
-		}
+//			}
+//		}
 		
 	}
 	
