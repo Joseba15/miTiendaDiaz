@@ -18,11 +18,14 @@ Carrito carrito = (Carrito) session.getAttribute("carrito");
 
 Integer cantidad = Integer.valueOf(request.getParameter("cantidad"));
 Integer codigo = Integer.valueOf(request.getParameter("codigo"));
+Medicamento med = CRUDMedicamento.getMedicine(codigo);
 
-/* CRUDMedicamento crudu = new CRUDMedicamento();
-	Medicamento medicamento= crudu.getMedicine(codigo);
-  */
-carrito.addArticulo( codigo ,cantidad, LocalDateTime.now());
+
+Double precio = Double.valueOf(request.getParameter("precio"));
+
+
+	
+carrito.addArticulo( med, cantidad, LocalDateTime.now(),precio);
 
 
 %>

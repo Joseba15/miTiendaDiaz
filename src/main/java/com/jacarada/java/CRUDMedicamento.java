@@ -9,11 +9,11 @@ import org.hibernate.query.Query;
 
 public class CRUDMedicamento {
 
-	public  Medicamento getMedicine(int idMedicamento) {
+	public static Medicamento getMedicine(int idMedicamento) {
 		Session session =  ConnectionBD.getSession();
 		
 		Medicamento medicamento = (Medicamento) session.get(Medicamento.class,idMedicamento);
-		return null;
+		return medicamento;
 	}
 	
 	
@@ -29,9 +29,9 @@ public class CRUDMedicamento {
 
 	
 	
-	public static void saveMedicines(String nombre,String descripcion, Double precio, Categoria categoria) {
+	public static void saveMedicines(String nombre,String descripcion, Double precio, Categoria categoria, Integer stock) {
         Session session = ConnectionBD.getSession();
-        Medicamento medicamento= new Medicamento(nombre,descripcion,precio,categoria);
+        Medicamento medicamento= new Medicamento(nombre,descripcion,precio,categoria, stock);
         
         try {
         	session.getTransaction().begin();

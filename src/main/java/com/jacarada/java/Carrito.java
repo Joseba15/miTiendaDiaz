@@ -18,25 +18,21 @@ public class Carrito {
 	
 	
 	
-	public void addArticulo(int idMedicamento, int cantidad, LocalDateTime fechaCompra) {
+	public void addArticulo(Medicamento idMedicamento, int cantidad, LocalDateTime fechaCompra, Double precio) {
+		listaCarrito.add(new MedicamentoCarrito(idMedicamento, cantidad, precio, fechaCompra));
+
+	}
+	
+	
+//	public void delArticulo(int idMedicamento) {
+//
 //		for (MedicamentoCarrito medicamentoCarrito : listaCarrito) {
-//			if (medicamentoCarrito.getIdMedicamento()!=idMedicamento) {			
-				listaCarrito.add(new MedicamentoCarrito(idMedicamento, cantidad, fechaCompra));
+//			if (medicamentoCarrito.getIdMedicamento()==idMedicamento) {			
+//				listaCarrito.remove(medicamentoCarrito);
 //			}
 //		}
-		
-	}
-	
-	
-	public void delArticulo(int idMedicamento) {
-
-		for (MedicamentoCarrito medicamentoCarrito : listaCarrito) {
-			if (medicamentoCarrito.getIdMedicamento()==idMedicamento) {			
-				listaCarrito.remove(medicamentoCarrito);
-			}
-		}
-		
-	}
+//		
+//	}
 	
 	
 	public ArrayList<MedicamentoCarrito> getListaCarrito() {

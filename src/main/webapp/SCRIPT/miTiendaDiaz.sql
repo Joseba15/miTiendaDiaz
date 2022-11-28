@@ -23,6 +23,7 @@ CREATE TABLE medicamentos (
 	descripcion VARCHAR(1000),
 	precio REAL,
 	id_categ INT(6),
+	stock INT(6) DEFAULT 100,
 
 	CONSTRAINT pk_medicamentos PRIMARY KEY (id),
 	CONSTRAINT fk_medicamentos FOREIGN KEY (id_categ) REFERENCES categoria(id) ON DELETE CASCADE
@@ -50,7 +51,7 @@ CREATE TABLE usuario_medicamentos(
 nombreUsuario VARCHAR(20),
 id_medic INT(6),
 cantidad INT(2),
-fechaCompra DATE
+fechaCompra DATE,
 
 CONSTRAINT PK_USUARIO_MEDIC PRIMARY KEY (id_medic,nombreUsuario,fechaCompra),
 CONSTRAINT FK_USUARIO_MEDIC FOREIGN KEY (id_medic) REFERENCES medicamentos(id) ON DELETE CASCADE,
@@ -174,7 +175,7 @@ insert into categoria (id, nombre, descripcion) values (8, 'Octinoxate', 'Replac
 insert into categoria (id, nombre, descripcion) values (9, 'Mucor plumbeus', 'Bypass Abd Aorta to L Int Ilia with Autol Vn, Open Approach');
 insert into categoria (id, nombre, descripcion) values (10, 'Moxifloxacin Hydrochloride', 'Repair Left Fibula, Percutaneous Endoscopic Approach');
 
-insert into medicamentos (nombre, descripcion, precio, id_categ) values ('MEIJER LUBRICANT EYE DROPS', 'Displaced intartic fx unsp calcaneus, init for opn fx', 16.11, 3);
+insert into medicamentos (nombre, descripcion, precio, id_categ, stock) values ('MEIJER LUBRICANT EYE DROPS', 'Displaced intartic fx unsp calcaneus, init for opn fx', 16.11, 3, 1);
 insert into medicamentos (nombre, descripcion, precio, id_categ) values ('AVANDARYL', 'Unsp fracture of unsp metacarpal bone, init for opn fx', 5.74, 2);
 insert into medicamentos (nombre, descripcion, precio, id_categ) values ('Moisturizing Hand Sanitizer', 'Sltr-haris Type IV physl fx lower end ulna, left arm, init', 6.03, 2);
 insert into medicamentos (nombre, descripcion, precio, id_categ) values ('Avedana Pain Relieving Roll On', 'Toxic effect of manganese and its compounds, undet, init', 5.79, 3);

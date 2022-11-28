@@ -24,16 +24,19 @@ public class Medicamento {
 	@ManyToOne
 	@JoinColumn (name="id_categ")
 	private Categoria categoria;
+	private Integer stock;
 	
 	public Medicamento() {}
 
-	public Medicamento(String name, String description, Double precio, Categoria categoria) {
+	public Medicamento(String name, String description, Double precio, Categoria categoria,Integer stock) {
 		super();
 		
 		this.name = name;
 		this.description = description;
 		this.precio = precio;
 		this.categoria = categoria;
+		this.stock=stock;
+		
 	}
 
 	public int getId() {
@@ -75,6 +78,15 @@ public class Medicamento {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
+	
 	
 	
 

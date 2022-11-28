@@ -57,14 +57,16 @@ public class ServletAddMedicamentos extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		Integer stock = null;
 		Double price=null;
 		Integer categoryId=null;
 		String name= request.getParameter("name");
 		String description = request.getParameter("description");
+		
 		try {
 			 price= Double.valueOf(request.getParameter("price"));
 			 categoryId = Integer.valueOf(request.getParameter("category"));
+			 stock = Integer.valueOf(request.getParameter("stock"));
 			
 		} catch (Exception e) {
 			response.getWriter().append("<!DOCTYPE html>"
@@ -91,7 +93,7 @@ public class ServletAddMedicamentos extends HttpServlet {
 		
 		if ((description!=null && !description.isEmpty()) || price!=null ||categoryId!=null) {
 			if ( CRUDMedicamento.existMedicamento(name)) {
-				CRUDMedicamento.saveMedicines( name, description, price, categoria);
+				CRUDMedicamento.saveMedicines( name, description, price, categoria,stock);
 				
 				ServletContext context = this.getServletContext(); 
 				RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletLogIn"); 

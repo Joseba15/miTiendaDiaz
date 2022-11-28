@@ -24,6 +24,9 @@
 				<label>Price :</label>
 				<input type="number" name="price" step="any">
 				<br>
+				<label>Stock :</label>
+				<input type="number" name="stock" step="any" min="1" required>
+				<br>
 				<label>Category :</label>
 				<select name="category" >
 					<% List<Categoria> listCategoria = CRUDCategoria.getCategories(); 

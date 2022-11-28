@@ -115,7 +115,7 @@ public class ServletLogIn extends HttpServlet {
 	    					+ "<td>" + medicamento.getDescription() + "</td>"
 	    					+ "<td>" + medicamento.getPrecio()+ "</td>"
 	    					+ "<td>" + medicamento.getCategoria().getNombre() + "</td>"
-	    					+ "<td>"+"<form action='AddToCarrito.jsp' method='post' ><button type='submit' name='codigo' value='"+medicamento.getId()+"'>Add</button> Cantidad<input type='number' name='cantidad'> </form>"+"</td>"); 
+	    					+ "<td>"+"<form action='AddToCarrito.jsp' method='post' > <button type='submit' name='codigo' value='"+medicamento.getId()+"'>Add</button> <input type='text' hidden name='precio' value='"+medicamento.getPrecio()+"'> Cantidad<input type='number' name='cantidad'> </form>"+"</td>"); 
 	    					}
 	         		
 				}else {

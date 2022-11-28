@@ -13,17 +13,21 @@
 		<tr>
 			<th>Nombre</th>
 			<th>Cantidad</th>
-			<th>Fecha Compra</th>
+			<th>Precio</th>
 		</tr>
-		<% Carrito carrito = (Carrito) session.getAttribute("carrito");%>
+		<% Carrito carrito = (Carrito) session.getAttribute("carrito");
+		   Double precioTotal = 0.0; %>
 		<% for (MedicamentoCarrito medCarrito : carrito.getListaCarrito() ) { %>	
 			<tr>
-				<td><%medCarrito.getIdMedicamento(); %></td>
-				<td><%medCarrito.getCantidad(); %></td>
-				<td><%medCarrito.getFechaCompra(); %></td>
+				<td><%=medCarrito.getIdMedicamento().getName() %></td>
+				<td><%=medCarrito.getCantidad() %></td>
+				<td><%=medCarrito.getPrecio() %></td>
 			</tr>
-			
+			<%precioTotal= precioTotal+medCarrito.getPrecio(); %>
 		<%}%>
+		
+		<h4>Precio Total: <%= precioTotal %></h4>
+		
 	</table>
 </body>
 </html>
