@@ -24,15 +24,26 @@ public class Carrito {
 	}
 	
 	
-//	public void delArticulo(int idMedicamento) {
-//
-//		for (MedicamentoCarrito medicamentoCarrito : listaCarrito) {
-//			if (medicamentoCarrito.getIdMedicamento()==idMedicamento) {			
-//				listaCarrito.remove(medicamentoCarrito);
-//			}
-//		}
-//		
-//	}
+	public void delArticulo(Medicamento idMedicamento) {
+
+		for (MedicamentoCarrito medicamentoCarrito : listaCarrito) {
+			if (medicamentoCarrito.getIdMedicamento()==idMedicamento) {			
+				listaCarrito.remove(medicamentoCarrito);
+			}
+		}
+		
+	}
+	
+	
+	public boolean vaciarLista() {
+		boolean resultado=false;
+		if(this.listaCarrito.size()>0) {
+			resultado=true;
+			this.listaCarrito.clear();
+			
+		}
+		return resultado;
+	}
 	
 	
 	public ArrayList<MedicamentoCarrito> getListaCarrito() {

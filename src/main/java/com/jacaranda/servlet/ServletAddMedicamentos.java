@@ -92,7 +92,7 @@ public class ServletAddMedicamentos extends HttpServlet {
 	
 		
 		if ((description!=null && !description.isEmpty()) || price!=null ||categoryId!=null) {
-			if ( CRUDMedicamento.existMedicamento(name)) {
+			if (CRUDMedicamento.existMedicamento(name)) {
 				CRUDMedicamento.saveMedicines( name, description, price, categoria,stock);
 				
 				ServletContext context = this.getServletContext(); 

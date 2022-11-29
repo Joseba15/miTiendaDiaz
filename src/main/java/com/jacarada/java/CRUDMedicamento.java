@@ -65,6 +65,22 @@ public class CRUDMedicamento {
 		
     }
 	
+	public static void updateArticleStock(int id, Integer stock) {
+        Session session = ConnectionBD.getSession();
+        Medicamento m = (Medicamento)session.get(Medicamento.class, id);
+        
+        System.out.println(m.getStock() -stock);
+        m.setStock(m.getStock() -stock);
+        System.out.println(m.getStock()-stock);
+        try {
+            session.getTransaction().begin();
+            session.save(m);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
+    }
+	
 	
 	
 }

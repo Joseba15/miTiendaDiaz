@@ -34,21 +34,22 @@ public class ServletLogIn extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("<!DOCTYPE html>"
-				+ "<html>"
-				+ "<head>"
-				+ "<meta charset=\"UTF-8\">"
-				+ "<title>"
-				+ "Pagina Error"
-				+ "</title>"
-				+ "<link rel='stylesheet' type='text/css' href='CSS/mvp.css'>"
-				+ "</head>"
-				+ "<body>"
-				+"<h1>Error 404</h1>"
-				+"<h4>Page not Found</h4>"
-				+"</body>"
-				+"</html>");
+//		// TODO Auto-generated method stub
+//		response.getWriter().append("<!DOCTYPE html>"
+//				+ "<html>"
+//				+ "<head>"
+//				+ "<meta charset=\"UTF-8\">"
+//				+ "<title>"
+//				+ "Pagina Error"
+//				+ "</title>"
+//				+ "<link rel='stylesheet' type='text/css' href='CSS/mvp.css'>"
+//				+ "</head>"
+//				+ "<body>"
+//				+"<h1>Error 404</h1>"
+//				+"<h4>Page not Found</h4>"
+//				+"</body>"
+//				+"</html>");
+		doPost(request, response);
 	}
 
 	/**
@@ -61,18 +62,41 @@ public class ServletLogIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
+		HttpSession session  = request.getSession();
 		PrintWriter out = response.getWriter();
 		
 		String usuario = request.getParameter("username");
 		String password = request.getParameter("password");
 		Carrito carrito = new Carrito();
 		
+		if((usuario ==null && password ==null)){
+            usuario = (String) session.getAttribute("usuario");
+            password =(String) session.getAttribute("password");
+            
+            if((usuario ==null || usuario.isEmpty()) && (password ==null || password.isEmpty())){
+            	response.getWriter().append("<!DOCTYPE html>"
+            			+ "<html>"
+            			+ "<head>"
+            			+ "<meta charset=\"UTF-8\">"
+            			+ "<title>"
+            			+ "Pagina Error"
+            			+ "</title>"
+            			+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+            			+ "</head>"
+            			+ "<body>"
+            			+"<h1>Error 400!</h1>"
+            			+"<h4>Not parse</h4>"
+            			+"</body>"
+            			+"</html>");
+            }
+		}
+
 		if(usuario !=null && password !=null ){
 	    	if(CRUDUser.getUser(usuario) != null && CRUDUser.getUser(usuario).getNombreUsuario().equals(usuario)  && CRUDUser.getUser(usuario).getContrasena().equals(CRUDUser.getMD5(password))){
-	    		HttpSession session  = request.getSession();
+	    		
 	         	session.setAttribute("login", "True");
 	         	session.setAttribute("usuario", usuario);
+	         	session.setAttribute("password", password);
 	         	session.setAttribute("carrito", carrito);
 	         	
 	         	
@@ -91,6 +115,7 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<body>"
 	    				+ "<a href=\"Login.html\"><input type='button' name='logout' value='LogOut'></a> "
 	    				+ "<a href=\"Compra.jsp\"><img src='IMAGES/carrito.png' width='40' height='40' id='imagen'></a>"
+	    				+ "<a href=\"ListadoOrdenado.jsp\"><input type='button' name='historial' value='Mostrar Hitorial'></a>"
 	    				+ "<br>"
 	    				+ "<br>"
 	    				+ "<table border='2'>"
@@ -100,7 +125,7 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<th id='description'>Descripcion: </th>"
 	    				+ "<th id='price'>Precio: </th>"
 	    				+ "<th id='category'>Nombre Categoria: </th>");
-	    				if (CRUDUser.getUser(usuario).isAdmin()) {
+	    				if (CRUDUser.getUser(usuario).isAdmin() ) {
 	    					response.getWriter().append("<th id='enlace'>"
 	    							+ "<a href=\"AddMedicamento.jsp\">Add Medicamento</a></th>"
 	    							+ "</tr>");							
@@ -115,7 +140,20 @@ public class ServletLogIn extends HttpServlet {
 	    					+ "<td>" + medicamento.getDescription() + "</td>"
 	    					+ "<td>" + medicamento.getPrecio()+ "</td>"
 	    					+ "<td>" + medicamento.getCategoria().getNombre() + "</td>"
-	    					+ "<td>"+"<form action='AddToCarrito.jsp' method='post' > <button type='submit' name='codigo' value='"+medicamento.getId()+"'>Add</button> <input type='text' hidden name='precio' value='"+medicamento.getPrecio()+"'> Cantidad<input type='number' name='cantidad'> </form>"+"</td>"); 
+	    					+ "<td>"
+								+"<form action='AddToCarrito.jsp' method='post' > "
+    								+ "<input type='text' hidden name='precio' value='"+medicamento.getPrecio()+"'> ");
+    								if(medicamento.getStock() >=1) {
+                                        out.println(
+                                        		"<button type='submit' name='codigo' value='"+medicamento.getId()+"'>Add</button> "+
+                                        		"Cantidad<input type='number' min='1' max='"+medicamento.getStock()+"' value='1' name='cantidad'>"
+                                                );
+                                    }else {
+                                        out.println("<p>No stock</p>");
+                                        
+                                    }out.println(
+								 " </form>"
+	    					+"</td>"); 
 	    					}
 	         		
 				}else {

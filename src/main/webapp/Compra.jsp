@@ -9,6 +9,9 @@
 <title>Lista del Carrito</title>
 </head>
 <body>
+
+	<a href="ServletLogIn"><button>Volver</button></a>
+
 	<table border="1">
 		<tr>
 			<th>Nombre</th>
@@ -27,7 +30,10 @@
 		<%}%>
 		
 		<h4>Precio Total: <%= precioTotal %></h4>
+		<br>
 		
+		<a href="ComprarLista.jsp"><button>Comprar</button></a>
+		<a href="BorrarLista.jsp"><button>Borrar Carrito</button></a>
 	</table>
 </body>
 </html>

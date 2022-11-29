@@ -24,11 +24,12 @@ Medicamento med = CRUDMedicamento.getMedicine(codigo);
 Double precio = Double.valueOf(request.getParameter("precio"));
 
 
-	
-carrito.addArticulo( med, cantidad, LocalDateTime.now(),precio);
 
+if( med.getStock()>0 && med.getStock() >= cantidad){
+	carrito.addArticulo( med, cantidad, LocalDateTime.now(),precio); 
+}
 
-%>
+%>	
 
 
 <%

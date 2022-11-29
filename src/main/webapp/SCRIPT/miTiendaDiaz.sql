@@ -51,6 +51,7 @@ CREATE TABLE usuario_medicamentos(
 nombreUsuario VARCHAR(20),
 id_medic INT(6),
 cantidad INT(2),
+precioTotal DECIMAL,
 fechaCompra DATE,
 
 CONSTRAINT PK_USUARIO_MEDIC PRIMARY KEY (id_medic,nombreUsuario,fechaCompra),
