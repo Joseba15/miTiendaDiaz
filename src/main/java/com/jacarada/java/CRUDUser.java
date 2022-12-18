@@ -13,7 +13,7 @@ public class CRUDUser {
 	
 	public static void saveUser(String username, String password, String nombre, String apellido, LocalDate fechaNacimiento, String genero, boolean admin) {
         Session session = ConnectionBD.getSession();
-        User usuario = new User(nombre, password, nombre, apellido, fechaNacimiento, genero, admin);
+        User usuario = new User(username, password, nombre, apellido, fechaNacimiento, genero, admin);
         session.getTransaction().begin();
         session.save(usuario);
         session.getTransaction().commit();

@@ -22,7 +22,7 @@ CREATE TABLE medicamentos (
 	nombre VARCHAR(150) unique,
 	descripcion VARCHAR(1000),
 	precio REAL,
-	id_categ INT(6),
+	id_categ INT(6) NOT NULL,
 	stock INT(6) DEFAULT 100,
 
 	CONSTRAINT pk_medicamentos PRIMARY KEY (id),
@@ -34,14 +34,14 @@ CREATE TABLE medicamentos (
 
 CREATE TABLE usuario(
 nombreUsuario VARCHAR(20),
-contrasena VARCHAR(32),
+contrasena VARCHAR(32) NOT NULL,
 nombre VARCHAR(20),
 apellido VARCHAR(20),
 fechaNacimiento date,
 genero VARCHAR(30),
 admin boolean,
 
-CONSTRAINT pk_usuario PRIMARY KEY (nombreUsuario)
+CONSTRAINT pk_usuario PRIMARY KEY (nombreUsuario) 
 );
 
 

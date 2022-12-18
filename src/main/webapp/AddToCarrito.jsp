@@ -9,34 +9,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
-<%
-Carrito carrito = (Carrito) session.getAttribute("carrito");
-
-Integer cantidad = Integer.valueOf(request.getParameter("cantidad"));
-Integer codigo = Integer.valueOf(request.getParameter("codigo"));
-Medicamento med = CRUDMedicamento.getMedicine(codigo);
-
-
-Double precio = Double.valueOf(request.getParameter("precio"));
-
-
-
-if( med.getStock()>0 && med.getStock() >= cantidad){
-	carrito.addArticulo( med, cantidad, LocalDateTime.now(),precio); 
-}
-
-%>	
-
-
-<%
-ServletContext context = this.getServletContext(); 
-RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletLogIn");
-%>
-
+	<%
+	Carrito carrito = (Carrito) session.getAttribute("carrito");
+	
+	Integer cantidad = Integer.valueOf(request.getParameter("cantidad"));
+	Integer codigo = Integer.valueOf(request.getParameter("codigo"));
+	Medicamento med = CRUDMedicamento.getMedicine(codigo);
+	
+	
+	Double precio = Double.valueOf(request.getParameter("precio"));
+	
+	
+	
+	if( med.getStock()>0 && med.getStock() >= cantidad){
+		carrito.addArticulo( med, cantidad, LocalDateTime.now(),precio); 
+		ServletContext context = this.getServletContext(); 
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletLogIn");
+	}else{%>
+		<jps:forward page="Error.html"></jps:forward><%
+	}%>
 
 </body>
 </html>

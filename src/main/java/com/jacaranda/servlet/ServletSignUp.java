@@ -46,6 +46,7 @@ public class ServletSignUp extends HttpServlet {
 				+ "<body>"
 				+"<h1>Error 404</h1>"
 				+"<h4>Page not Found</h4>"
+				+ "<a href=\"ServletSignUp\"><input type='button' name='back' value='Go Back'></a>"
 				+"</body>"
 				+"</html>");
 	}
@@ -79,6 +80,7 @@ public class ServletSignUp extends HttpServlet {
 					+ "<body>"
 					+"<h1>Error 400</h1>"
 					+"<h4>Data can not parse</h4>"
+					+ "<a href=\"ServletSignUp\"><input type='button' name='back' value='Go Back'></a>"
 					+"</body>"
 					+"</html>");
 			
@@ -102,7 +104,7 @@ public class ServletSignUp extends HttpServlet {
 			
 			if (CRUDUser.getUser(nombreusuario)==null && CRUDUser.isValidUser(nombreusuario,CRUDUser.getMD5(contrasena), nombre, apellido, birthday, genero, realAdmin)==true) {
 				CRUDUser.saveUser(nombreusuario,CRUDUser.getMD5(contrasena),nombre,apellido,birthday,genero,realAdmin);
-				response.sendRedirect("Login.html");
+				response.sendRedirect("index.html");
 				
 			}else {
 				response.getWriter().append("<!DOCTYPE html>"
@@ -117,6 +119,7 @@ public class ServletSignUp extends HttpServlet {
 						+ "<body>"
 						+"<h1>Error 400</h1>"
 						+"<h4>User already exits!. Or data is too long for column on database</h4>"
+						+ "<a href=\"ServletSignUp\"><input type='button' name='back' value='Go Back'></a>"
 						+"</body>"
 						+"</html>");
 			}
@@ -134,6 +137,7 @@ public class ServletSignUp extends HttpServlet {
 					+ "<body>"
 					+"<h1>Error 400</h1>"
 					+"<h4>All the form data cannot be null</h4>"
+					+ "<a href=\"ServletSignUp\"><input type='button' name='back' value='Go Back'></a>"
 					+"</body>"
 					+"</html>");
 		}

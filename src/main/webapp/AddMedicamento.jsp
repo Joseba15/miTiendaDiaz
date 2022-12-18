@@ -22,7 +22,7 @@
 				<input type="text" name="description" required>
 				<br>
 				<label>Price :</label>
-				<input type="number" name="price" step="any">
+				<input type="number" name="price" min="0.01" step="0.01" required>
 				<br>
 				<label>Stock :</label>
 				<input type="number" name="stock" step="any" min="1" required>
@@ -42,7 +42,7 @@
 				<br>
 				<button type="submit" name="confirm">Confirm</button>
 			</form>
-			<a href="Login.html"><button name="back">Back</button></a>
+				<a href="ServletLogIn"><button name="back">Back</button></a>
 	</div>
 </body>
 </html>

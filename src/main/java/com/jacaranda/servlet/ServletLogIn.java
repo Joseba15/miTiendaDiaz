@@ -82,6 +82,7 @@ public class ServletLogIn extends HttpServlet {
             			+ "Pagina Error"
             			+ "</title>"
             			+ "<link rel='stylesheet' type='text/css' href='css/mvp.css'>"
+            			+" <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' crossorigin='anonymous'>"
             			+ "</head>"
             			+ "<body>"
             			+"<h1>Error 400!</h1>"
@@ -170,6 +171,7 @@ public class ServletLogIn extends HttpServlet {
 							+ "<body>"
 							+"<h1>Error 400!</h1>"
 							+"<h4>Data is null or data is too long for column</h4>"
+		    				+ "<a href=\"ServletLogIn\"><input type='button' name='back' value='Go Back'></a>"
 							+"</body>"
 							+"</html>");
 				}
@@ -188,6 +190,7 @@ public class ServletLogIn extends HttpServlet {
 	    				+ "<body>"
 	    				+"<h1>Error 400!</h1>"
 	    				+"<h4>User doesn't exits on database!</h4>"
+	    				+ "<a href=\"ServletLogIn\"><input type='button' name='back' value='Go Back'></a>"
 	    				+"</body>"
 	    				+"</html>");
 	  	 	}

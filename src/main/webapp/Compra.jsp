@@ -29,7 +29,7 @@
 			<%precioTotal= precioTotal+medCarrito.getPrecio(); %>
 		<%}%>
 		
-		<h4>Precio Total: <%= precioTotal %></h4>
+		<h4>Precio Total: <%=Math.round(precioTotal*100)/100 %></h4>
 		<br>
 		
 		<a href="ComprarLista.jsp"><button>Comprar</button></a>
